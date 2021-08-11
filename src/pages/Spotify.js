@@ -55,19 +55,19 @@ const JSONBIN_JSON = {
 const Spotify = () => {
   const [playlists, setPlaylists] = useState();
 
-  useEffect(() => { getSpotifyFromJsonbin(); }, []);
+  useEffect(() => { getSpotify(); }, []);
 
-  const getSpotifyFromJsonbin = () => {
-    axios(JSONBIN_JSON)
-      .then(response => {
-        setPlaylists(_.sortBy(response.data.items, 'name'));
-      })
-      .catch(e => {
-        console.log("failed on get")
-        let logMessage = e.response?.statusText ? e.response.statusText : e
-        console.log(logMessage);
-      });
-  };
+  // const getSpotifyFromJsonbin = () => {
+  //   axios(JSONBIN_JSON)
+  //     .then(response => {
+  //       setPlaylists(_.sortBy(response.data.items, 'name'));
+  //     })
+  //     .catch(e => {
+  //       console.log("failed on get")
+  //       let logMessage = e.response?.statusText ? e.response.statusText : e
+  //       console.log(logMessage);
+  //     });
+  // };
 
   const getTokenFromSpotifyAPI = () => {
     let bearerToken = localStorage.getItem("bearerToken");
